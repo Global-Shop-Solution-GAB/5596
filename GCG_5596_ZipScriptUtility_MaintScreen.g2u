@@ -1,0 +1,790 @@
+Program.Sub.ScreenSU.Start
+Gui.frmMaintenance..Create
+Gui.frmMaintenance..Caption("ZipScript - Maintenance")
+Gui.frmMaintenance..Size(15360,10695)
+Gui.frmMaintenance..MinX(0)
+Gui.frmMaintenance..MinY(0)
+Gui.frmMaintenance..Position(0,0)
+Gui.frmMaintenance..BackColor(-2147483633)
+Gui.frmMaintenance..MousePointer(0)
+Gui.frmMaintenance..MaxButton(False)
+Gui.frmMaintenance..Sizeable(False)
+Gui.frmMaintenance..Event(UnLoad,frmMaintenance_Unload)
+Gui.frmMaintenance.lbl1.Create(Label,"Menu Option Maintenance",True,3300,300,0,90,150,True,0,"Arial",10,-2147483633,0)
+Gui.frmMaintenance.lbl1.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.txtMaintOptName.Create(TextBox,"",True,6960,300,0,105,780,True,0,"Arial",8,-2147483643,1)
+Gui.frmMaintenance.lbl2.Create(Label,"Option Name",True,1155,270,0,135,555,True,0,"Arial",8,-2147483633,0)
+Gui.frmMaintenance.lbl3.Create(Label,"Parent Option (if any)",True,2445,270,0,7800,540,True,0,"Arial",8,-2147483633,0)
+Gui.frmMaintenance.ddlParentLevel.Create(DropDownList)
+Gui.frmMaintenance.ddlParentLevel.Size(6165,330)
+Gui.frmMaintenance.ddlParentLevel.Position(7770,765)
+Gui.frmMaintenance.gsgcMaintmenuOpts.Create(GsGridControl)
+Gui.frmMaintenance.gsgcMaintmenuOpts.Size(14835,3255)
+Gui.frmMaintenance.gsgcMaintmenuOpts.Position(105,1260)
+Gui.frmMaintenance.gsgcMaintmenuOpts.Event(RowCellClick,GsGcMaintmenuOpts_RowCellClick)
+Gui.frmMaintenance.cmdSaveMenuOption.Create(Button)
+Gui.frmMaintenance.cmdSaveMenuOption.Size(855,375)
+Gui.frmMaintenance.cmdSaveMenuOption.Position(14070,60)
+Gui.frmMaintenance.cmdSaveMenuOption.Caption("Save")
+Gui.frmMaintenance.cmdSaveMenuOption.BackColor(9498256)
+Gui.frmMaintenance.cmdSaveMenuOption.Event(Click,cmdSaveMenuOption_Click)
+Gui.frmMaintenance.cmdSaveMenuOption.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.cmdDeleteMenuOption.Create(Button)
+Gui.frmMaintenance.cmdDeleteMenuOption.Size(855,375)
+Gui.frmMaintenance.cmdDeleteMenuOption.Position(14070,435)
+Gui.frmMaintenance.cmdDeleteMenuOption.Caption("Delete")
+Gui.frmMaintenance.cmdDeleteMenuOption.BackColor(12632319)
+Gui.frmMaintenance.cmdDeleteMenuOption.Event(Click,cmdDeleteMenuOption_Click)
+Gui.frmMaintenance.cmdDeleteMenuOption.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.lblMaintSplitMainGroups.Create(Label,"",True,15045,30,0,0,4650,True,0,"Arial",8,15453831,0)
+Gui.frmMaintenance.lbl5.Create(Label,"Menu-File Association Maintenance",True,4830,300,0,90,4785,True,0,"Arial",10,-2147483633,0)
+Gui.frmMaintenance.lbl5.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.cmdDeleteMenuFile.Create(Button)
+Gui.frmMaintenance.cmdDeleteMenuFile.Size(855,375)
+Gui.frmMaintenance.cmdDeleteMenuFile.Position(14055,5670)
+Gui.frmMaintenance.cmdDeleteMenuFile.Caption("Delete")
+Gui.frmMaintenance.cmdDeleteMenuFile.BackColor(12632319)
+Gui.frmMaintenance.cmdDeleteMenuFile.Event(Click,cmdDeleteMenuFile_Click)
+Gui.frmMaintenance.cmdDeleteMenuFile.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.cmdSaveMenuFile.Create(Button)
+Gui.frmMaintenance.cmdSaveMenuFile.Size(855,375)
+Gui.frmMaintenance.cmdSaveMenuFile.Position(14055,5295)
+Gui.frmMaintenance.cmdSaveMenuFile.Caption("Save")
+Gui.frmMaintenance.cmdSaveMenuFile.BackColor(9498256)
+Gui.frmMaintenance.cmdSaveMenuFile.Event(Click,cmdSaveMenuFile_Click)
+Gui.frmMaintenance.cmdSaveMenuFile.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.GsGcMaintMenuFileAssoc.Create(GsGridControl)
+Gui.frmMaintenance.GsGcMaintMenuFileAssoc.Size(14760,3450)
+Gui.frmMaintenance.GsGcMaintMenuFileAssoc.Position(165,6540)
+Gui.frmMaintenance.GsGcMaintMenuFileAssoc.Event(RowCellClick,GsGcMaintMenuFileAssoc_RowCellClick)
+Gui.frmMaintenance.lbl6.Create(Label,"File Name",True,2445,270,0,7920,5805,True,0,"Arial",8,-2147483633,0)
+Gui.frmMaintenance.lbl7.Create(Label,"Option Name",True,1155,270,0,7905,5160,True,0,"Arial",8,-2147483633,0)
+Gui.frmMaintenance.txtMaintMenuFilePath.Create(TextBox,"",True,5460,300,0,7860,6030,True,0,"Arial",8,-2147483643,1)
+Gui.frmMaintenance.cmdMaintMenuOptBrowse.Create(Button)
+Gui.frmMaintenance.cmdMaintMenuOptBrowse.Size(585,345)
+Gui.frmMaintenance.cmdMaintMenuOptBrowse.Position(13350,6000)
+Gui.frmMaintenance.cmdMaintMenuOptBrowse.Caption("^")
+Gui.frmMaintenance.cmdMaintMenuOptBrowse.Event(Click,cmdMaintMenuOptBrowse_Click)
+Gui.frmMaintenance.cmdClearMenuOption.Create(Button)
+Gui.frmMaintenance.cmdClearMenuOption.Size(855,375)
+Gui.frmMaintenance.cmdClearMenuOption.Position(14070,810)
+Gui.frmMaintenance.cmdClearMenuOption.Caption("Clear")
+Gui.frmMaintenance.cmdClearMenuOption.Event(Click,cmdClearMenuOption_Click)
+Gui.frmMaintenance.cmdClearMenuOption.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.cmdClearMenuFile.Create(Button)
+Gui.frmMaintenance.cmdClearMenuFile.Size(855,375)
+Gui.frmMaintenance.cmdClearMenuFile.Position(14055,6045)
+Gui.frmMaintenance.cmdClearMenuFile.Caption("Clear")
+Gui.frmMaintenance.cmdClearMenuFile.Event(Click,cmdClearMenuFile_Click)
+Gui.frmMaintenance.cmdClearMenuFile.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.ddlMaintMenuFileOptName.Create(DropDownList)
+Gui.frmMaintenance.ddlMaintMenuFileOptName.Size(6060,330)
+Gui.frmMaintenance.ddlMaintMenuFileOptName.Position(7860,5385)
+Gui.frmMaintenance.ddlMaintMenuFileOptName.Event(Click,ddlMaintMenuFileOptName_Click)
+Gui.frmMaintenance.lblMaintSplitMFAGroups.Create(Label,"",True,30,1440,0,7665,5100,True,0,"Arial",8,15453831,0)
+Gui.frmMaintenance.cmdMaintMenuFileSpreadsheet.Create(Button)
+Gui.frmMaintenance.cmdMaintMenuFileSpreadsheet.Size(585,345)
+Gui.frmMaintenance.cmdMaintMenuFileSpreadsheet.Position(7005,5355)
+Gui.frmMaintenance.cmdMaintMenuFileSpreadsheet.Caption("^")
+Gui.frmMaintenance.cmdMaintMenuFileSpreadsheet.Event(Click,cmdMaintMenuFileSpreadsheet_Click)
+Gui.frmMaintenance.txtMaintMenuFileSpreadsheet.Create(TextBox,"",True,6795,300,0,180,5385,True,0,"Arial",8,-2147483643,1)
+Gui.frmMaintenance.lbl9.Create(Label,"Upload Options via Spreadsheet:",True,4500,270,0,180,5160,True,0,"Arial",8,-2147483633,0)
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.Create(Button)
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.Size(1725,345)
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.Position(165,5700)
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.Caption("Upload Files")
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.Event(Click,cmdMaintMenuFileUpldFiles_Click)
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.BackColor(15453831)
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.cmdMaintMenuFileUpldFiles.ToolTip("Uploads files listed in the selected spreadsheet")
+Gui.frmMaintenance.txtMaintMenuFileErrors.Create(TextboxM)
+Gui.frmMaintenance.txtMaintMenuFileErrors.ToolTip("List of errors from the last upload")
+Gui.frmMaintenance.txtMaintMenuFileErrors.ForeColor(139)
+Gui.frmMaintenance.txtMaintMenuFileErrors.Size(3765,645)
+Gui.frmMaintenance.txtMaintMenuFileErrors.Position(3810,5760)
+Gui.frmMaintenance.lbl10.Create(Label,"Errors with last upload:",True,975,510,0,2820,5910,True,0,"Arial",8,-2147483633,0)
+Gui.frmMaintenance.pbarMaintenanceScreen.Create(ProgressBar)
+Gui.frmMaintenance.pbarMaintenanceScreen.Size(2445,255)
+Gui.frmMaintenance.pbarMaintenanceScreen.Position(180,6135)
+Gui.frmMaintenance.pbarMaintenanceScreen.Visible(False)
+Gui.frmMaintenance.cmdMaintMenuFileExport.Create(Button)
+Gui.frmMaintenance.cmdMaintMenuFileExport.Size(1725,345)
+Gui.frmMaintenance.cmdMaintMenuFileExport.Position(5865,4710)
+Gui.frmMaintenance.cmdMaintMenuFileExport.Caption("Export Files")
+Gui.frmMaintenance.cmdMaintMenuFileExport.BackColor(8421376)
+Gui.frmMaintenance.cmdMaintMenuFileExport.ForeColor(16777215)
+Gui.frmMaintenance.cmdMaintMenuFileExport.ToolTip("Exports all menu and file associations to a spreadsheet")
+Gui.frmMaintenance.cmdMaintMenuFileExport.FontStyle(True,False,False,False,False)
+Gui.frmMaintenance.cmdMaintMenuFileExport.Event(Click,cmdMaintMenuFileExport_Click)
+Gui.Form..Create
+Gui.Form..Size(15360,10695)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	v.Global.sFilePath.Declare(string)
+	v.Global.iMaintMenuOptIndex.declare(long)
+	v.Global.iMaintMenuFileIndex.declare(long)
+	
+	'Get the path of the GSS directory to set the file path needed to the Global folder
+	f.Intrinsic.String.Build("{0}{1}",v.Caller.GlobalDir,"\",v.Global.sFilePath)
+	v.Global.iMaintMenuOptIndex.set(-1)
+	v.Global.iMaintMenuFileIndex.set(-1)
+	
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	f.Intrinsic.Control.Try
+		f.ODBC.connection!conn.opencommonconnection(600)
+		f.Intrinsic.Control.CallSub(LoadMaintMenuOptions)
+		f.Intrinsic.Control.CallSub(SetIcons)
+		gui.frmMaintenance..Show	
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+'-----FORM EVENTS-----
+Program.Sub.frmMaintenance_Unload.Start
+	f.Intrinsic.Control.Try
+		'Housekeeping
+		f.Intrinsic.Control.CallSub(CloseConnection)
+		F.Intrinsic.Control.ClearErrors	
+		f.Intrinsic.Control.End
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.frmMaintenance_Unload.End
+
+Program.Sub.cmdClearMenuOption_Click.Start
+	f.Intrinsic.Control.Try
+		gui.frmMaintenance.txtMaintOptName.Text("")
+		gui.frmMaintenance.ddlParentLevel.Text("")
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdClearMenuOption_Click.End
+
+Program.Sub.cmdClearMenuFile_Click.Start
+	f.Intrinsic.Control.Try
+		gui.frmMaintenance.txtMaintMenuFilePath.Text("")
+		gui.frmMaintenance.ddlMaintMenuFileOptName.Text("")
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdClearMenuFile_Click.End
+
+Program.Sub.GsGcMaintMenuFileAssoc_RowCellClick.Start
+	'When a row is clicked, bring up that record
+	f.Intrinsic.Control.Try
+		v.local.sFilePath.Declare(string)
+		
+		'Set this so that the Add and Delete subs can keep track of the currently selected index
+		v.Global.iMaintMenuFileIndex.Set(v.Args.rowindex)
+				
+		gui.frmMaintenance.GsGcMaintMenuFileAssoc.GetCellValueByColumnName("gvMaintMenuFile","MenuOption",v.Args.rowindex,v.Local.sFilePath)
+		gui.frmMaintenance.ddlMaintMenuFileOptName.text(v.Local.sFilePath)
+		gui.frmMaintenance.GsGcMaintMenuFileAssoc.GetCellValueByColumnName("gvMaintMenuFile","FileName",v.Args.rowindex,v.Local.sFilePath)
+		gui.frmMaintenance.txtMaintMenuFilePath.text(v.Local.sFilePath)
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.GsGcMaintMenuFileAssoc_RowCellClick.End
+
+Program.Sub.GsGcMaintmenuOpts_RowCellClick.Start
+	'When a row is clicked, bring up that record
+	f.Intrinsic.Control.Try
+		v.local.sFilePath.Declare(string)
+		
+		'Set this so that the Add and Delete subs can keep track of the currently selected index
+		v.Global.iMaintMenuOptIndex.Set(v.Args.rowindex)
+				
+		gui.frmMaintenance.GsGcMaintmenuOpts.GetCellValueByColumnName("gvMaintMenuOpts","MenuOption",v.Args.rowindex,v.Local.sFilePath)
+		gui.frmMaintenance.txtMaintOptName.text(v.Local.sFilePath)
+		gui.frmMaintenance.GsGcMaintmenuOpts.GetCellValueByColumnName("gvMaintMenuOpts","ParentMenu",v.Args.rowindex,v.Local.sFilePath)
+		gui.frmMaintenance.ddlParentLevel.Text(v.Local.sFilePath)
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.GsGcMaintmenuOpts_RowCellClick.End
+
+Program.Sub.cmdSaveMenuOption_Click.Start
+	f.Intrinsic.Control.Try
+		'Add to the DT
+		v.Local.sParent.Declare(string)
+		v.Local.sFilter.Declare(string)
+		
+		
+	
+		'Determine parent yes/no
+		f.Intrinsic.Control.If(v.screen.frmMaintenance!ddlParentLevel.Text,!=,"")
+			v.Local.sParent.Set("Yes")
+		f.Intrinsic.Control.Else
+			v.Local.sParent.Set("No")
+		f.Intrinsic.Control.EndIf
+		
+		'If the selected row index is >= 0, simply update.  If not, it is new and needs to be validated before saving.
+		f.Intrinsic.Control.If(v.Global.iMaintMenuOptIndex,>=,0)
+			f.Data.dataview.SetValue("dtMaintMenuOpts","dvMaintMenuOpts",v.Global.iMaintMenuOptIndex,"MenuOption",v.screen.frmMaintenance!txtMaintOptName.Text)
+			f.Data.dataview.SetValue("dtMaintMenuOpts","dvMaintMenuOpts",v.Global.iMaintMenuOptIndex,"ParentMenu",v.screen.frmMaintenance!ddlParentLevel.Text)
+			f.Data.dataview.SetValue("dtMaintMenuOpts","dvMaintMenuOpts",v.Global.iMaintMenuOptIndex,"Parent",v.Local.sParent)			
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.build("MenuOption = '{0}'", v.screen.frmMaintenance!txtMaintOptName.Text, v.Local.sFilter)
+			f.Data.DataView.create("dtMaintMenuOpts", "dvMaintMenuOptsTemp")
+			f.Data.DataView.SetFilter("dtMaintMenuOpts","dvMaintMenuOptsTemp",v.local.sFilter)
+			
+			f.Intrinsic.Control.If(v.DataView.dtMaintMenuOpts!dvMaintMenuOptsTemp.RowCount,>,0)
+				f.Intrinsic.UI.Msgbox("Menu option record already exists!")
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.AddRow("dtMaintMenuOpts","MenuOption",v.screen.frmMaintenance!txtMaintOptName.Text,"ParentMenu",v.screen.frmMaintenance!ddlParentLevel.Text,"Parent",v.Local.sParent,"ID",-1)
+			f.Intrinsic.Control.EndIf
+		f.Intrinsic.Control.EndIf
+		
+		'Accept changes, saveToDB
+		f.Data.DataTable.acceptchanges("dtMaintMenuOpts")
+		f.Data.DataTable.SaveToDB("dtMaintMenuOpts","conn","ZipScript_MenuOpt","ID","256")
+		
+		gui.frmMaintenance.txtMaintOptName.Text("")
+		gui.frmMaintenance.ddlParentLevel.Text("")
+		
+		v.Global.iMaintMenuOptIndex.Set(-1)
+		f.Intrinsic.Control.CallSub(PopulateParentLevels)
+		
+		
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdSaveMenuOption_Click.End
+
+Program.Sub.cmdMaintMenuOptBrowse_Click.Start
+	f.Intrinsic.Control.Try
+		'Windows open file dialog
+		v.Local.sSelectedFileName.Declare(string)
+		V.Local.sSelectedFilePath.Declare(string)
+		v.Local.sStringSplit.Declare(string)
+		v.Local.iFileNameLength.Declare(long)
+		
+		'After browsing for the file, split the string into segments delimited by "\".  The last element in that array is the file name.
+		
+		F.Intrinsic.UI.ShowOpenFileDialog("", "","524288",v.Local.sSelectedFileName)
+		'Open the file only if it has one of the following extensions: .xls, .xlsx, .csv
+		f.Intrinsic.Control.If(v.Local.sSelectedFileName,!=,"***CANCEL***")		
+			f.Intrinsic.String.Split(v.Local.sSelectedFileName,"\",v.Local.sStringSplit)
+			gui.frmMaintenance.txtMaintMenuFilePath.Text(v.Local.sStringSplit(v.Local.sStringSplit.ubound))
+		F.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdMaintMenuOptBrowse_Click.End
+
+Program.Sub.ddlMaintMenuFileOptName_Click.Start
+	f.Intrinsic.Control.Try
+		v.Local.sRowFilters.Declare(string)
+		'When the selected item changes, load only the files associated with the selected menu option.  If "" is selected, clear the grid
+		f.Intrinsic.String.build("'{0}'",v.Screen.frmMaintenance!ddlMaintMenuFileOptName.text,v.Local.sRowFilters)
+		f.Intrinsic.Control.CallSub(LoadMaintMenuFileAssoc, RowFilter, v.Local.sRowFilters, LoadGrid, True)
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.ddlMaintMenuFileOptName_Click.End
+
+Program.Sub.cmdSaveMenuFile_Click.Start
+	f.Intrinsic.Control.Try		
+		v.Local.sFilter.Declare(string)
+		v.Local.sSQL.Declare(string)
+		
+		
+		
+		'If selected row index >= 0, update that record.  If not, add new.
+		f.Intrinsic.Control.If(v.Screen.frmMaintenance!ddlMaintMenuFileOptName.text,!=,"")
+		f.Intrinsic.Control.AndIf(v.Screen.frmMaintenance!txtMaintMenuFilePath.text,!=,"")
+			'If the selected row index is >= 0, simply update.  If not, it is new and needs to be validated before saving.
+			f.Intrinsic.Control.If(v.Global.iMaintMenuFileIndex,>=,0)
+				f.Data.dataview.SetValue("dtMaintMenuFile","dvMaintMenuFile",v.Global.iMaintMenuFileIndex,"MenuOption",v.screen.frmMaintenance!ddlMaintMenuFileOptName.Text)
+				f.Data.dataview.SetValue("dtMaintMenuFile","dvMaintMenuFile",v.Global.iMaintMenuFileIndex,"FileName",v.screen.frmMaintenance!txtMaintMenuFilePath.Text)		
+				
+				f.Intrinsic.String.Build("update ZipScript_MenuFile set MenuOption='{0}', FileName='{1}' where ID={2}",v.screen.frmMaintenance!ddlMaintMenuFileOptName.Text, v.screen.frmMaintenance!txtMaintMenuFilePath.Text,v.DataTable.dtMaintMenuFile	(v.Global.iMaintMenuFileIndex).ID!FieldValTrim,v.Local.sSQL)
+				F.ODBC.Connection!conn.Execute(V.Local.sSQL)
+			f.Intrinsic.Control.Else
+				'Add the record to the datatable IF the record does not already exist
+				f.Intrinsic.String.build("MenuOption = '{0}' and FileName = '{1}'", v.screen.frmMaintenance!ddlMaintMenuFileOptName.Text, v.screen.frmMaintenance!txtMaintMenuFilePath.Text, v.Local.sFilter)
+				f.Data.DataView.create("dtMaintMenuFile", "dvMaintMenuFileTemp")
+				f.Data.DataView.SetFilter("dtMaintMenuFile","dvMaintMenuFileTemp",v.local.sFilter)
+				
+				f.Intrinsic.Control.If(v.DataView.dtMaintMenuFile!dvMaintMenuFileTemp.RowCount,>,0)
+					f.Intrinsic.UI.Msgbox("Menu-file association record already exists!")
+				f.Intrinsic.Control.Else
+					f.Data.DataTable.AddRow("dtMaintMenuFile","MenuOption",v.screen.frmMaintenance!ddlMaintMenuFileOptName.Text,"FileName",v.screen.frmMaintenance!txtMaintMenuFilePath.Text, "ID", -1)
+					f.Intrinsic.String.Build("insert into ZipScript_MenuFile (MenuOption, FileName) values ('{0}', '{1}')",v.screen.frmMaintenance!ddlMaintMenuFileOptName.Text, v.screen.frmMaintenance!txtMaintMenuFilePath.Text,v.Local.sSQL)
+					F.ODBC.Connection!conn.Execute(V.Local.sSQL)
+				f.Intrinsic.Control.EndIf
+			f.Intrinsic.Control.EndIf
+			
+			'Accept changes
+			f.Data.DataTable.acceptchanges("dtMaintMenuFile")
+						
+			'Reset the file path field but not the menu option so that more files can easily be entered
+			gui.frmMaintenance.txtMaintMenuFilePath.Text("")
+			gui.frmMaintenance.txtMaintMenuFilePath.SetFocus
+			
+			v.Global.iMaintMenuFileIndex.Set(-1)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.UI.Msgbox("A menu option must be selected, and a file must be entered for SAVE to succeed.")
+		f.Intrinsic.Control.EndIf
+		
+		
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdSaveMenuFile_Click.End
+
+Program.Sub.cmdDeleteMenuOption_Click.Start
+	'Delete the record from the grid
+	v.Local.sSQL.Declare(string)
+	v.Local.iID.Declare(long)
+	
+	'Add the record to the datatable
+	f.Intrinsic.Control.Try
+		
+		
+	    f.Intrinsic.Control.If(v.screen.frmMaintenance!txtMaintOptName.Text,!=,"")
+			f.Intrinsic.Control.If(v.Global.iMaintMenuOptIndex,>=,0)
+				'Delete the row for the db
+				gui.frmMaintenance.gsgcMaintmenuOpts.GetCellValueByColumnName("gvMaintMenuOpts","ID",v.Global.iMaintMenuOptIndex,v.Local.iID)
+				f.Intrinsic.String.Build("delete from ZipScript_MenuOpt where id={0}",v.Local.iID,v.Local.sSQL)
+				F.ODBC.Connection!conn.Execute(V.Local.sSQL) 
+				'***COULD NOT GET THIS TO WORK FOR SOME REASON: f.Data.DataTable.SaveToDB("dtMaintMenuOpts","conn","ZipScript_MenuOpt","ID","256")***
+				
+				f.Data.DataTable.DeleteRow("dtMaintMenuOpts",v.Global.iMaintMenuOptIndex)
+				f.Data.DataTable.acceptchanges("dtMaintMenuOpts")
+			f.Intrinsic.Control.EndIf					
+	    f.Intrinsic.Control.EndIf
+	    
+	    gui.frmMaintenance.txtMaintOptName.Text("")
+		gui.frmMaintenance.ddlParentLevel.Text("")
+		gui.frmMaintenance.txtMaintOptName.SetFocus
+		v.Global.iMaintMenuOptIndex.Set(-1)	
+		
+		
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdDeleteMenuOption_Click.End
+
+Program.Sub.cmdDeleteMenuFile_Click.Start
+	'Delete the record from the grid
+	v.Local.sSQL.Declare(string)
+	v.Local.iID.Declare(long)
+	
+	'Add the record to the datatable
+	f.Intrinsic.Control.Try
+		
+		
+	    f.Intrinsic.Control.If(v.screen.frmMaintenance!ddlMaintMenuFileOptName.Text,!=,"")
+	    f.Intrinsic.Control.AndIf(v.Screen.frmMaintenance!txtMaintMenuFilePath.text,!=,"")
+			f.Intrinsic.Control.If(v.Global.iMaintMenuFileIndex,>=,0)
+				'Delete the row for the db
+				gui.frmMaintenance.GsGcMaintMenuFileAssoc.GetCellValueByColumnName("gvMaintMenuFile","ID",v.Global.iMaintMenuFileIndex,v.Local.iID)
+				f.Intrinsic.String.Build("delete from ZipScript_MenuFile where id={0}",v.Local.iID,v.Local.sSQL)
+				F.ODBC.Connection!conn.Execute(V.Local.sSQL) 
+				'***COULD NOT GET THIS TO WORK FOR SOME REASON: f.Data.DataTable.SaveToDB("dtMaintMenuFile","conn","ZipScript_MenuFile","ID","7")***
+				
+				f.Data.DataTable.DeleteRow("dtMaintMenuFile",v.Global.iMaintMenuFileIndex)
+				f.Data.DataTable.acceptchanges("dtMaintMenuFile")
+			f.Intrinsic.Control.EndIf
+	    f.Intrinsic.Control.EndIf
+	    
+	    gui.frmMaintenance.ddlMaintMenuFileOptName.Text("")
+		gui.frmMaintenance.txtMaintMenuFilePath.Text("")
+		gui.frmMaintenance.ddlMaintMenuFileOptName.SetFocus
+		v.Global.iMaintMenuFileIndex.Set(-1)
+		
+		
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdDeleteMenuFile_Click.End
+
+Program.Sub.cmdMaintMenuFileUpldFiles_Click.Start
+	f.Intrinsic.Control.Try
+		f.Intrinsic.Control.If(v.Screen.frmMaintenance!txtMaintMenuFileSpreadsheet.text,!=,"")
+			f.Intrinsic.Control.CallSub(ImportMenuFilesFromExcel, FileName, v.Screen.frmMaintenance!txtMaintMenuFileSpreadsheet.text)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.UI.Msgbox("You must first browse to a valid spreadsheet.")
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry	
+Program.Sub.cmdMaintMenuFileUpldFiles_Click.End
+
+Program.Sub.cmdMaintMenuFileSpreadsheet_Click.Start
+	f.Intrinsic.Control.Try
+		'Windows open file dialog
+		v.Local.sSelectedFileName.Declare(string)
+		v.local.bRet.Declare(boolean)
+		
+		F.Intrinsic.UI.ShowOpenFileDialog("", "","524288",v.Local.sSelectedFileName)
+		f.Intrinsic.Control.If(v.Local.sSelectedFileName,!=,"***CANCEL***")	
+			'Load the selected file only if the file ext is .xls, .xlsx, or .csv
+			f.Intrinsic.String.isinstring(v.local.sselectedfilename,".xls",true,v.Local.bRet)
+			f.intrinsic.Control.If(v.Local.bRet,=,false)
+				f.Intrinsic.String.isinstring(v.local.sselectedfilename,".xlsx",true,v.Local.bRet)
+				f.intrinsic.Control.If(v.Local.bRet,=,false)
+					f.Intrinsic.String.isinstring(v.local.sselectedfilename,".csv",true,v.Local.bRet)
+					f.intrinsic.Control.If(v.Local.bRet,=,false)
+						f.Intrinsic.UI.Msgbox("Cannot open the selected file.  The file must have one of the following extensions: .xls, .xlsx, or .csv.")
+					f.Intrinsic.Control.EndIf
+				f.Intrinsic.Control.EndIf
+			f.Intrinsic.Control.EndIf
+			
+			f.intrinsic.Control.If(v.Local.bRet,=,true)
+				gui.frmMaintenance.txtMaintMenuFileSpreadsheet.Text(v.Local.sSelectedFileName)
+			f.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdMaintMenuFileSpreadsheet_Click.End
+
+Program.Sub.cmdMaintMenuFileExport_Click.Start
+	f.Intrinsic.Control.Try
+		'Get all file associations and export them to a spreadsheet
+		f.Intrinsic.Control.CallSub(LoadMaintMenuFileAssoc, RowFilter, "", LoadGrid, True)
+		f.Intrinsic.Control.CallSub(ExportMenuFilesToExcel)
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.cmdMaintMenuFileExport_Click.End
+
+'-----DATA MOVEMENT-----
+Program.Sub.SetIcons.Start
+	f.Intrinsic.Control.Try
+		v.Local.sIconPath.Declare(string)
+		f.Intrinsic.String.Build("{0}SP2\gss.ico",v.local.sIconPath)
+		gui.frmMaintenance..Icon(v.local.sIconPath)
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.SetIcons.End
+
+Program.Sub.ErrorMsg.Start
+	f.Intrinsic.Control.Try
+		v.Local.sError.Declare
+		
+		'Generic Error message.
+		f.Intrinsic.String.Build("Project ProjectName.g2u {0}{0}Subroutine: {1}{0}Error: {2} with Description: {3}", v.Ambient.NewLine, v.Args.CurrentSub, v.Ambient.ErrorNumber, v.Ambient.ErrorDescription, v.Local.sError)
+		f.Intrinsic.UI.Msgbox(v.Local.sError)
+		
+		f.Intrinsic.Control.CallSub(CloseConnection)
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.ErrorMsg.End
+
+Program.Sub.LoadMaintMenuOptions.Start
+	v.Local.sError.Declare(String)
+	v.Local.sSQL.Declare(string)
+	
+	f.Intrinsic.Control.Try		
+		
+		
+		f.Intrinsic.Control.If(v.DataTable.dtMaintMenuOpts.Exists,=,False)
+			v.Local.sSQL.set("select * from ZipScript_MenuOpt order by upper(MenuOption)")
+			f.Data.DataTable.CreateFromSQL("dtMaintMenuOpts", "conn", v.Local.sSQL,True)
+			f.Data.DataView.Create("dtMaintMenuOpts","dvMaintMenuOpts")
+			gui.frmMaintenance.GsGcMaintmenuOpts.AddGridviewFromDataview("gvMaintMenuOpts","dtMaintMenuOpts","dvMaintMenuOpts")
+						
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","MenuOption","Width",150)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","MenuOption","MinWidth",100)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","MenuOption","MaxWidth",500)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","MenuOption","ReadOnly",True)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","MenuOption","AllowEdit",False)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","MenuOption","HeaderBackColor","GradientActiveCaption")
+			
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","ParentMenu","Width",150)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","ParentMenu","MinWidth",100)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","ParentMenu","MaxWidth",500)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","ParentMenu","ReadOnly",True)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","ParentMenu","AllowEdit",False)
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","ParentMenu","HeaderBackColor","GradientActiveCaption")
+			
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","Parent","Visible","False")
+			gui.frmMaintenance.GsGcMaintmenuOpts.setcolumnproperty("gvMaintMenuOpts","ID","Visible","False")
+			
+			f.Intrinsic.Control.CallSub(PopulateParentLevels)
+			
+			gui.frmMaintenance.GsGcMaintmenuOpts.MainView("gvMaintMenuOpts")
+		f.Intrinsic.Control.EndIf
+		
+		
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)		
+	f.Intrinsic.Control.EndTry
+Program.Sub.LoadMaintMenuOptions.End
+
+Program.Sub.LoadMaintMenuFileAssoc.Start
+	v.Local.sError.Declare(String)
+	v.Local.sSQL.Declare(string)
+	v.Local.bRet.Declare(boolean)
+	v.Local.sFilter.Declare(string)
+	
+	f.Intrinsic.Control.Try		
+		
+		
+		f.Intrinsic.Control.If(v.DataTable.dtMaintMenuFile.Exists,=,True)
+			f.Data.DataTable.Close("dtMaintMenuFile")
+		f.Intrinsic.Control.EndIf
+		
+		f.Intrinsic.Control.If(v.Args.RowFilter,=,"")
+			v.Local.sFilter.Set("")
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("where MenuOption in ({0})",v.Args.RowFilter,v.Local.sFilter)
+		f.Intrinsic.Control.EndIf
+		
+		f.Intrinsic.String.Build("select MenuOption, FileName, ID from ZipScript_MenuFile {0} order by upper(MenuOption),upper(FileName)", v.Local.sFilter, v.Local.sSQL)
+		f.Data.DataTable.CreateFromSQL("dtMaintMenuFile", "conn", v.Local.sSQL,True)
+		f.Data.DataView.Create("dtMaintMenuFile","dvMaintMenuFile")
+		
+		f.Intrinsic.Control.If(v.Args.LoadGrid,=,True)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.AddGridviewFromDataview("gvMaintMenuFile","dtMaintMenuFile","dvMaintMenuFile")
+			
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","MenuOption","Width",150)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","MenuOption","MinWidth",100)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","MenuOption","MaxWidth",500)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","MenuOption","ReadOnly",True)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","MenuOption","AllowEdit",False)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","MenuOption","HeaderBackColor","GradientActiveCaption")
+			
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","FileName","Width",150)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","FileName","MinWidth",100)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","FileName","MaxWidth",500)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","FileName","ReadOnly",True)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","FileName","AllowEdit",False)
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","FileName","HeaderBackColor","GradientActiveCaption")
+			
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.setcolumnproperty("gvMaintMenuFile","ID","Visible","False")
+			
+			gui.frmMaintenance.GsGcMaintMenuFileAssoc.MainView("gvMaintMenuFile")
+		f.Intrinsic.Control.EndIf
+		
+		
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)		
+	f.Intrinsic.Control.EndTry
+Program.Sub.LoadMaintMenuFileAssoc.End
+
+Program.Sub.PopulateParentLevels.Start
+	f.Intrinsic.Control.Try
+		v.Local.iCount.Declare(long)
+	
+		gui.frmMaintenance.ddlParentLevel.ClearItems
+		gui.frmMaintenance.ddlParentLevel.AddItem("")
+		
+		gui.frmMaintenance.ddlMaintMenuFileOptName.ClearItems
+		gui.frmMaintenance.ddlMaintMenuFileOptName.AddItem("")
+		
+		f.Intrinsic.Control.For(v.Local.icount,0,v.DataTable.dtMaintMenuOpts.RowCount--,1)
+			gui.frmMaintenance.ddlParentLevel.AddItem(v.DataTable.dtMaintMenuOpts(v.Local.iCount).MenuOption!FieldValTrim)
+			gui.frmMaintenance.ddlMaintMenuFileOptName.AddItem(v.DataTable.dtMaintMenuOpts(v.Local.iCount).MenuOption!FieldValTrim)
+		f.Intrinsic.Control.Next(v.Local.icount)
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.PopulateParentLevels.End
+
+Program.Sub.ImportMenuFilesFromExcel.Start
+	f.Intrinsic.Control.Try
+		v.Local.lNumRows.Declare(long)
+		v.local.lCount.Declare(long)
+		v.Local.sRowData.Declare(string)
+		v.Local.sDataArray.Declare(string)
+		v.Local.lCellCount.Declare(long)
+		v.Local.sErrors.Declare(string)
+		v.Local.sFilter.Declare(string)
+		v.Local.iret.Declare(float)
+		v.local.sFileFilter.Declare(string)
+		v.Local.sOptionFilter.Declare(string)
+		v.Local.sSQL.Declare(string)
+		
+		
+		
+		v.local.iret.Set(-1)
+	
+		'Set the progress bar
+		v.Local.lCount.Set(2)
+		
+		'Create dataview for verifying that menu option is legitimate
+		f.Data.DataView.create("dtMaintMenuOpts", "dvMaintMenuOptsXLTemp")
+		
+		'Create dataview for verifying that menu-file association does not already exist
+		f.Intrinsic.Control.CallSub(LoadMaintMenuFileAssoc, RowFilter, v.Local.sOptionFilter, LoadGrid, False)
+		f.Data.DataView.create("dtMaintMenuFile","dvMaintMenuFileXLTemp")
+		
+		'Create Excel objects
+		f.Automation.MSExcel.CreateAppObject("MSExcel")
+		f.Automation.MSExcel.OpenWorkbook("MSExcel","Wkbk1",v.Args.FileName)
+		f.Automation.MSExcel.OpenWorkSheet("Wkbk1","Wkst1",1)
+		
+		'Iterate through the selected file to get the contents copied into the datatable
+		f.Automation.MSExcel.RowCount("Wkst1",v.Local.lNumRows)
+		f.Intrinsic.Control.CallSub(WriteToProgressBar,"Mode","Initialize","Count",1,"Total",v.Local.lNumRows)
+		v.Local.sOptionFilter.Set("")
+		
+		f.Intrinsic.Control.For(v.Local.lCount,2,v.Local.lNumRows,1)
+			f.Automation.MSExcel.ReadRow("Wkst1",v.local.lCount,1,2,v.Local.sRowData)
+			f.Intrinsic.String.Split(v.local.sRowData,"*!*",v.Local.sDataArray)
+			
+			'Validate the cell data.  Neither one can be blank, and the menu option has to exist in dtMenu
+			f.Intrinsic.Control.If(v.Local.sDataArray(0),!=,"")
+			f.Intrinsic.Control.AndIf(v.Local.sDataArray(1),!=,"")
+				f.Intrinsic.String.build("MenuOption = '{0}'",v.Local.sDataArray(0), v.Local.sFilter)
+				f.Intrinsic.Control.If(v.Local.sOptionFilter,!=,"")
+					v.Local.sOptionFilter.Append("*!*")
+				f.Intrinsic.Control.EndIf
+				
+				v.Local.sOptionFilter.Append(v.Local.sDataArray(0))
+				
+				f.Data.DataView.setfilter("dtMaintMenuOpts","dvMaintMenuOptsXLTemp","")
+				f.Data.DataView.SetFilter("dtMaintMenuOpts","dvMaintMenuOptsXLTemp",v.local.sFilter)
+				
+				f.Intrinsic.Control.If(v.DataView.dtMaintMenuOpts!dvMaintMenuOptsXLTemp.RowCount,=,0)
+					f.Intrinsic.Control.If(v.Local.sErrors,!=,"")
+						f.Intrinsic.String.Build("{0}{1}",v.Local.sErrors,v.Ambient.NewLine,v.Local.sErrors)
+					f.Intrinsic.Control.EndIf
+					f.Intrinsic.String.Build("{0}The menu option in row {1} does not exist.",v.Local.sErrors,v.Local.lcount,v.Local.sErrors)
+				f.Intrinsic.Control.Else
+					'Verify that the menu option and file have not already been added
+					f.Intrinsic.String.build("MenuOption = '{0}' and FileName = '{1}'",v.Local.sDataArray(0), v.Local.sDataArray(1), v.Local.sFilter)
+					
+					f.Data.DataView.setfilter("dtMaintMenuFile","dvMaintMenuFileXLTemp","")
+					f.Data.DataView.SetFilter("dtMaintMenuFile","dvMaintMenuFileXLTemp",v.local.sFilter)
+					f.Intrinsic.Control.If(v.DataView.dtMaintMenuFile!dvMaintMenuFileXLTemp.RowCount,>,0)
+					
+						f.Intrinsic.Control.If(v.Local.sErrors,!=,"")
+							f.Intrinsic.String.Build("{0}{1}",v.Local.sErrors,v.Ambient.NewLine,v.Local.sErrors)
+						f.Intrinsic.Control.EndIf
+						f.Intrinsic.String.Build("{0}The menu-file association option in row {1} already exists.",v.Local.sErrors,v.Local.lcount,v.Local.sErrors)
+					f.Intrinsic.Control.Else						
+						f.Intrinsic.String.Build("insert into ZipScript_MenuFile (MenuOption, FileName) values ('{0}', '{1}')",v.Local.sDataArray(0), v.Local.sDataArray(1),v.Local.sSQL)
+						F.ODBC.Connection!conn.Execute(V.Local.sSQL)
+						
+						f.Intrinsic.String.Build("select id from ZipScript_MenuFile where MenuOption='{0}' and FileName='{1}'",v.Local.sDataArray(0), v.Local.sDataArray(1),v.Local.iret)
+						F.ODBC.Connection!conn.ExecuteAndReturn(V.Local.sSQL, v.Local.iret)
+						
+						f.Data.DataTable.AddRow("dtMaintMenuFile","MenuOption",v.Local.sDataArray(0),"FileName",v.Local.sDataArray(1),"ID",v.Local.iret)
+						f.Data.DataTable.acceptchanges("dtMaintMenuFile")
+					f.Intrinsic.Control.EndIf
+				f.Intrinsic.Control.EndIf
+			f.Intrinsic.Control.Else
+				f.Intrinsic.Control.If(v.Local.sErrors,!=,"")
+					f.Intrinsic.String.Build("{0}{1}",v.Local.sErrors,v.Ambient.NewLine,v.Local.sErrors)
+				f.Intrinsic.Control.EndIf
+				f.Intrinsic.String.Build("{0}One of the cells in row {1} is blank.",v.Local.sErrors,v.Local.lcount,v.Local.sErrors)
+			f.Intrinsic.Control.EndIf
+			
+			f.Intrinsic.Control.CallSub(WriteToProgressBar,"Mode","Update","Count",v.Local.lCount,"Total",v.Local.lNumRows)
+		f.Intrinsic.Control.Next(v.Local.lCount)
+		
+		'Display errors (if any)
+		f.Intrinsic.Control.If(v.Local.sErrors,!=,"")
+			gui.frmMaintenance.txtMaintMenuFileErrors.Text(v.Local.sErrors)
+		f.Intrinsic.Control.EndIf
+		
+		'remove duplicates from the options filter before loading the grid
+		f.Intrinsic.String.Split(v.Local.sOptionFilter,"*!*",v.Local.sOptionFilter)
+		f.Intrinsic.String.RemoveArrayDuplicates(v.Local.sOptionFilter,v.Local.sOptionFilter)
+		v.Local.lCount.Set(0)
+		v.Local.sFilter.Set("")
+		
+		f.Intrinsic.Control.For(v.Local.lCount,0,v.Local.sOptionFilter.UBound,1)
+			f.Intrinsic.Control.If(v.Local.lCount,>,0)
+				f.Intrinsic.String.Build("{0},",v.Local.sFilter,v.Local.sFilter)
+			f.Intrinsic.Control.EndIf
+		
+			f.Intrinsic.String.Build("'{0}'",v.Local.sOptionFilter(v.Local.lCount),v.Local.sFilter)
+		f.Intrinsic.Control.Next(v.Local.lCount)
+		
+		'Set the grid to display all files associated with the menu options
+		f.Intrinsic.Control.CallSub(LoadMaintMenuFileAssoc, RowFilter, v.Local.sFilter, LoadGrid, True)
+		
+		
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.Finally
+		'Kill the Excel objects
+		f.Automation.MSExcel.DestroyAllObjects("MSExcel","Wkbk1","Wkst1")
+		gui.frmMaintenance.pbarMaintenanceScreen.Visible(False)
+	f.Intrinsic.Control.EndTry
+Program.Sub.ImportMenuFilesFromExcel.End
+
+Program.Sub.ExportMenuFilesToExcel.Start
+	f.Intrinsic.Control.Try
+		v.local.iCount.Declare(long)
+		v.Local.iRowCount.Declare(long)
+		v.Local.sExportPath.Declare(string)
+		v.Local.bExcelInstalled.Declare(boolean)
+		
+		v.Local.iCount.Set(0)
+		v.Local.iRowCount.Set(2)
+		f.Intrinsic.String.Build("{0}{1}",v.Caller.LocalGSSTempDir,"GCG_5596_MenuFileExport.xlsx",v.Local.sExportPath)
+		gui.frmMaintenance.GsGcMaintMenuFileAssoc.Export(v.Local.sExportPath,"xlsx")
+		
+		F.Intrinsic.Task.ShellExec(0,"",v.Local.sExportPath,"","",1)			
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.ExportMenuFilesToExcel.End
+
+Program.Sub.WriteToProgressBar.Start
+	f.Intrinsic.Control.Try
+		'Writes to progress bar.
+		'Args: Mode, Count, Total
+		'Mode arg has two modes:
+		'	1. Initialize:	Sets the min/max of the progress bar, resets value to min, makes the frame visible, resets the progress label
+		'	2. Any other value passed:	Updated progress bar value
+		
+		v.Local.sProgressCount.Declare(string)
+		'iMaxIfError works by ensuring that the pBar max is never <= the count
+		v.Local.iMaxIfError.Declare(long)
+		
+		f.Intrinsic.Control.If(v.Args.Mode,=,"Initialize")
+			gui.frmMaintenance.pbarMaintenanceScreen.Visible(True)
+			gui.frmMaintenance.pbarMaintenanceScreen.min(v.Args.Count)
+			f.Intrinsic.Control.If(v.Args.total,<=,v.Args.count)
+				f.Intrinsic.Math.Add(v.args.count,1,v.Local.iMaxIfError)
+				gui.frmMaintenance.pbarMaintenanceScreen.max(v.Local.iMaxIfError)
+			f.Intrinsic.Control.Else
+				gui.frmMaintenance.pbarMaintenanceScreen.max(v.Args.Total)
+			f.Intrinsic.Control.EndIf
+		f.Intrinsic.Control.Elseif(v.Args.Mode,=,"")
+			gui.frmMaintenance.pbarMainScreen.value(v.Args.Count)
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.WriteToProgressBar.End
+
+Program.Sub.CloseConnection.Start
+	f.Intrinsic.Control.Try
+		'Closes ODBC connection, default to connection : "conn"
+		f.Intrinsic.Control.If(v.ODBC!conn.State, =, 1)
+			f.ODBC.Connection!conn.Close
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.UI.Msgbox("Error closing connection.  Check PCC to ensure connection is closed.")
+	f.Intrinsic.Control.EndTry
+Program.Sub.CloseConnection.End
+
+Program.Sub.Comments.Start
+	Author: Daniel Duncan
+	Customer: Global Shop Solutions
+	Program Name: ZipScript Utility v2.0 Maintenance
+	Date Started: 6/19/2019
+	Description: This project is placed in System Support > Administration > ZipScript Utility Maintenance.  This program is meant for the Service Manager to be able to add, edit, and delete both menu options and menu-file associations.  Menu options are added via manual entry.  menu-file associations can either be manually entered or uploaded from
+	Quote: 
+	GAP: 5596
+Program.Sub.Comments.End
